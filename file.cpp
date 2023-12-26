@@ -3,8 +3,8 @@
 
 using namespace std;
 
-string* read_names(string f_name, int len) {
-    string *names = new string[len];
+string* read_names(const string& f_name, int len) {
+    auto *names = new string[len];
 
     fstream file;
     file.open(f_name, ios::in);
@@ -24,4 +24,6 @@ int main() {
     for (int i = 0; i < 5; ++i) {
         cout << data[i] << endl;
     }
+
+    delete data;
 }
