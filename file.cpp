@@ -41,12 +41,15 @@ int main() {
 
     for (int i = 0; i < 10; ++i) {
         string name = names[i];
-        int cnt = 0;
+        if (name == "") continue;
 
-        for (int j = 0; j < 10; ++j) {
+        int cnt = 1;
+
+        for (int j = i + 1; j < 10; ++j) {
             string name2 = names[j];
-            if (name == name2) {
+            if (name2 != "" && name == name2) {
                 cnt++;
+                names[j] = "";
             }
         }
 
