@@ -2,16 +2,24 @@
 
 using namespace std;
 
-void min_max(int *arr, int len, int target) {
+void min_max(int **ptr, int len, int target)
+{
+    int *arr = *ptr;
+
     int max = arr[0];
-    for (int i = 1; i < len; ++i) {
-        if (arr[i] > max) {
+    for (int i = 1; i < len; ++i)
+    {
+        if (arr[i] > max)
+        {
             max = arr[i];
         }
     }
+
     int min = max;
-    for (int i = 0; i < len; ++i) {
-        if (arr[i] > target && arr[i] < min) {
+    for (int i = 0; i < len; ++i)
+    {
+        if (arr[i] > target && arr[i] < min)
+        {
             min = arr[i];
         }
     }
@@ -20,10 +28,12 @@ void min_max(int *arr, int len, int target) {
     cout << "Max: " << max << endl;
 }
 
-int main() {
+int main()
+{
     int arr[5];
 
-    for (int &n: arr) {
+    for (int &n : arr)
+    {
         cout << "Enter a number: ";
         cin >> n;
     }
@@ -32,5 +42,7 @@ int main() {
     int target;
     cin >> target;
 
-    min_max(arr, 5, target);
+    int **ptr;
+    *ptr = arr;
+    min_max(ptr, 5, target);
 }
